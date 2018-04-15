@@ -1,17 +1,7 @@
 package org.aditya.techhunt.onlineshopping.controller;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,22 +11,40 @@ public class PageController {
 	public ModelAndView index() {
 		
 		ModelAndView mv= new ModelAndView("page");
-		mv.addObject("greeting", "Welcome to web mvc" );
-		
+		mv.addObject("title", "Home" );
+		mv.addObject("userClickHome", true);
 		return mv;
 	}
 	
-	@RequestMapping(value= {"/test"})
-	public ModelAndView test(@RequestParam(value="greeting",defaultValue="Hello All") String greeting) {
-		if (greeting==null) {
-			greeting="Hello There";
-		}
+	@RequestMapping(value= {"/about"})
+	public ModelAndView about() {
 		
 		ModelAndView mv= new ModelAndView("page");
-		mv.addObject("greeting", greeting );
-		
+		mv.addObject("title", "About Us" );
+		mv.addObject("userClickAbout", true);
 		return mv;
 	}
+	
+	@RequestMapping(value= {"/contact"})
+	public ModelAndView contact() {
+		
+		ModelAndView mv= new ModelAndView("page");
+		mv.addObject("title", "Contact Us" );
+		mv.addObject("userClickContact", true);
+		return mv;
+	}
+	
+	/*@RequestMapping(value= {"/contact"})
+	public ModelAndView contact() {
+		
+		ModelAndView mv= new ModelAndView("page");
+		mv.addObject("title", "contact Us" );
+		mv.addObject("userClickContact", true);
+		return mv;
+	}*/
+	
+	
+	
 	
 	
 }
